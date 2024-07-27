@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Natural Wonders of the World</title>
+  <title>Navigation</title>
 </head>
-<frameset cols="20%, 80%">
-  <frame name="links" src="links.html">
-  <frame name="main" src="content.html">
-  <noframes>
-    <body>Your browser does not support frames.</body>
-  </noframes>
-</frameset>
+    <frameset rows="50%,50%">  
+        <frameset cols="50%,50*">
+            <frame src="topl.html" name="1">
+            <frame src="topr.html" name="2">
+        </frameset>
+        <frameset rows="100%,*">
+            <frameset cols="50%,50*">
+            <frame src="bottoml.html" name="3">
+            <frame src="bottomr.html" name="4">
+        </frameset>
+    </frameset>
+    <noframes>
+      <body>
+        Your Browser is not compatible
+      </body>
+    </noframes>
 </html>
