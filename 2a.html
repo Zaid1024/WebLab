@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Form</title>
+</head>
+<body>
+
+    <h1>Student Feedback Form</h1>
+
+    <form action="/submit_feedback" method="post">
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="course">Course:</label><br>
+        <input type="text" id="course" name="course" required><br><br>
+
+        <label for="rating">Rate the Course:</label><br>
+        <input type="radio" id="excellent" name="rating" value="Excellent">
+        <label for="excellent">Excellent</label><br>
+        <input type="radio" id="good" name="rating" value="Good">
+        <label for="good">Good</label><br>
+        <input type="radio" id="average" name="rating" value="Average">
+        <label for="average">Average</label><br>
+        <input type="radio" id="poor" name="rating" value="Poor">
+        <label for="poor">Poor</label><br><br>
+
+        <label for="recommend">Would you recommend this course to others?</label><br>
+        <select id="recommend" name="recommend" required>
+            <option value="">--Please choose an option--</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="feedback">Feedback:</label><br>
+        <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit Feedback">
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        form > * { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="tel" id="mobile" placeholder="Mobile No" pattern="\d{10}" required>
+        <select id="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="color" id="color">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fields = ['name', 'email', 'mobile', 'gender', 'color'];
+            const values = fields.map(id => document.getElementById(id).value);
+            document.getElementById('result').innerHTML = fields.map((field, i) => 
+                `${field.charAt(0).toUpperCase() + field.slice(1)}: ${field === 'color' ? 
+                `<span style="color:${values[i]}">${values[i]}</span>` : values[i]}`
+            ).join('<br>');
+        });
+    </script>
+</body>
+</html>
