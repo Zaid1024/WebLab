@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<style>
+    input[type="text"], select {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<form id="myForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email"><br>
+    <label for="mobile">Mobile No:</label><br>
+    <input type="text" id="mobile" name="mobile"><br>
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select><br>
+    <label for="color">Favorite Color:</label><br>
+    <input type="color" id="color" name="color"><br>
+    <button type="button" onclick="validateForm()">Submit</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+function validateForm() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var mobile = document.getElementById('mobile').value;
+    var gender = document.getElementById('gender').value;
+    var color = document.getElementById('color').value;
+    
+    if (name === '' || email === '' || mobile === '' || gender === '') {
+        alert('Please fill in all fields.');
+        return false;
+    }
+
+    
+    var emailRegex = /^\S+@\S+\.\S+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+
+ 
+    var mobileRegex = /^\d{10}$/;
+    if (!mobileRegex.test(mobile)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        return false;
+    }
+
+    var result = "Name: " + name + "<br>";
+    result += "Email: " + email + "<br>";
+    result += "Mobile No: " + mobile + "<br>";
+    result += "Gender: " + gender + "<br>";
+    result += "Favorite Color: <span style='color:" + color + ";'>" + color + "</span><br>";
+    
+    document.getElementById('result').innerHTML = result;
+}
+</script>
+
+</body>
+</html>
